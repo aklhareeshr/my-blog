@@ -19,13 +19,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    /*  public function index()
-      {
-          $posts = Post::with(['user', 'comments:id,comment,user_id,post_id', 'comments.user:id,name', 'tags:id,name'])
-              ->orderBy('created_at', 'desc')
-              ->paginate(10);
-          return response()->json($posts, 200);
-      }*/
+   
     public function index()
     {
         return Post::with(['comments', 'tags'])->get();
